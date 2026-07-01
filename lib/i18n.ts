@@ -10,7 +10,7 @@ export const dict = {
     "hero.identity": "أستاذة علم الاجتماع · الجامعة اللبنانية",
     "hero.motto": "في خدمة مجتمعي",
     "hero.bio":
-      "أستاذة برتبة بروفيسور في علم الاجتماع ومديرة معهد العلوم الاجتماعية في الجامعة اللبنانية. كاتبة وباحثة في قضايا الذكاء الاصطناعي والمجتمع، التحوّل الرقمي، المرأة، والتربية.",
+      "مديرة معهد العلوم الاجتماعية في الجامعة اللبنانية، وكاتبة وباحثة في قضايا الذكاء الاصطناعي والمجتمع، التحوّل الرقمي، المرأة، والتربية.",
     "hero.readArticles": "اقرأ المقالات",
     "hero.watchMedia": "الإطلالات الإعلامية",
     "home.about.title": "نبذة",
@@ -54,7 +54,7 @@ export const dict = {
     "nav.contact": "Contact",
     "hero.identity": "Professor of Sociology · Lebanese University",
     "hero.bio":
-      "Professor of Sociology and Director of the Institute of Social Sciences at the Lebanese University. A writer and researcher on AI & society, digital transformation, women, and education.",
+      "Director of the Institute of Social Sciences at the Lebanese University, and a writer and researcher on AI & society, digital transformation, women, and education.",
     "hero.motto": "I serve my community",
     "hero.readArticles": "Read articles",
     "hero.watchMedia": "Media appearances",
