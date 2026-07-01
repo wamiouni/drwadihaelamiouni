@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette */
+  --color-parchment: #faf3f0;
+  --color-seashell: #fef1eb;
+  --color-antique: #ffebd6;
+  --color-champagne: #f2e5cf;
+  --color-mauve: #9b6f7f;
+  --color-mauve-dark: #8a5f6e;
+  --color-plum: #6e4b58;
+  --color-ink: #2b2226;
+  --color-muted: #8a7378;
+  --color-line: #efdccd;
+
+  /* Fonts (variables provided by next/font in layout) */
+  --font-body: var(--font-plex-ar), var(--font-plex), system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-arabic: var(--font-amiri), Georgia, serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  background-color: var(--color-parchment);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-parchment);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings: Amiri for Arabic (RTL), Newsreader for Latin (LTR) */
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-arabic);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+[dir="ltr"] h1,
+[dir="ltr"] h2,
+[dir="ltr"] h3,
+[dir="ltr"] .font-display {
+  font-family: var(--font-serif);
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-mauve) 28%, transparent);
+}
+
+/* Hide scrollbars on horizontal rails */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

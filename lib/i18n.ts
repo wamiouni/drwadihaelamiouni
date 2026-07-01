@@ -1,0 +1,99 @@
+export type Lang = "ar" | "en";
+export const DEFAULT_LANG: Lang = "ar";
+
+export const dict = {
+  ar: {
+    "nav.home": "الرئيسية",
+    "nav.articles": "مقالات",
+    "nav.media": "ظهور إعلامي",
+    "nav.contact": "تواصل",
+    "hero.identity": "أستاذة علم اجتماع · الجامعة اللبنانية",
+    "hero.motto": "في خدمة مجتمعي",
+    "hero.bio":
+      "أستاذة برتبة بروفيسور في علم الاجتماع ومديرة معهد العلوم الاجتماعية في الجامعة اللبنانية. كاتبة وباحثة في قضايا الذكاء الاصطناعي والمجتمع، التحوّل الرقمي، المرأة، والتربية.",
+    "hero.readArticles": "المقالات",
+    "hero.watchMedia": "الظهور الإعلامي",
+    "home.about.title": "نبذة",
+    "about.body":
+      "تجمع الدكتورة وديعة الأميوني بين العمل الأكاديمي والحضور العام: أستاذة ومديرة معهد العلوم الاجتماعية في الجامعة اللبنانية، وكاتبة رأي في صحيفة النهار وغيرها، وضيفة دائمة في البرامج التلفزيونية والإذاعية حول قضايا المجتمع والتكنولوجيا والمرأة والدولة.",
+    "home.latestArticles": "أحدث المقالات",
+    "home.latestMedia": "أحدث الظهور الإعلامي",
+    "common.viewAll": "عرض الكل",
+    "browse.searchArticles": "ابحث في المقالات…",
+    "browse.searchMedia": "ابحث في الظهور الإعلامي…",
+    "browse.allYears": "كل السنوات",
+    "browse.newest": "الأحدث",
+    "browse.oldest": "الأقدم",
+    "browse.allFormats": "كل الأنواع",
+    "browse.noResults": "لا نتائج مطابقة.",
+    "browse.loadMore": "عرض المزيد",
+    "browse.count": "عنصراً",
+    "fmt.tv": "تلفزيون",
+    "fmt.radio": "إذاعة",
+    "fmt.video": "فيديو",
+    "fmt.podcast": "بودكاست",
+    "fmt.print": "مطبوع",
+    "articles.title": "مقالات",
+    "articles.sub": "مقالات ومقالات رأي بقلم الدكتورة وديعة الأميوني.",
+    "media.title": "ظهور إعلامي",
+    "media.sub": "مقابلات وحلقات تلفزيونية وإذاعية.",
+    "contact.title": "للتواصل",
+    "contact.lead":
+      "يسعدني تواصلكم للمحاضرات والمقابلات والتعاون الأكاديمي والإعلامي.",
+    "contact.email": "البريد الإلكتروني",
+    "contact.facebook": "فيسبوك",
+    "card.read": "قراءة المقال",
+    "card.watch": "مشاهدة",
+    "footer.rights": "جميع الحقوق محفوظة",
+  },
+  en: {
+    "nav.home": "Home",
+    "nav.articles": "Articles",
+    "nav.media": "Media",
+    "nav.contact": "Contact",
+    "hero.identity": "Professor of Sociology · Lebanese University",
+    "hero.bio":
+      "Professor of Sociology and Director of the Institute of Social Sciences at the Lebanese University. A writer and researcher on AI & society, digital transformation, women, and education.",
+    "hero.motto": "I serve my community",
+    "hero.readArticles": "Read articles",
+    "hero.watchMedia": "Media appearances",
+    "home.about.title": "About",
+    "about.body":
+      "Dr. Wadiha El Amiouni bridges academic work and public life: a professor and director of the Institute of Social Sciences at the Lebanese University, an opinion columnist for An-Nahar and others, and a frequent guest on television and radio on questions of society, technology, women, and the state.",
+    "home.latestArticles": "Latest articles",
+    "home.latestMedia": "Latest media",
+    "common.viewAll": "View all",
+    "browse.searchArticles": "Search articles…",
+    "browse.searchMedia": "Search media…",
+    "browse.allYears": "All years",
+    "browse.newest": "Newest",
+    "browse.oldest": "Oldest",
+    "browse.allFormats": "All formats",
+    "browse.noResults": "No matching results.",
+    "browse.loadMore": "Load more",
+    "browse.count": "items",
+    "fmt.tv": "TV",
+    "fmt.radio": "Radio",
+    "fmt.video": "Video",
+    "fmt.podcast": "Podcast",
+    "fmt.print": "Print",
+    "articles.title": "Articles",
+    "articles.sub": "Columns and op-eds by Dr. Wadiha El Amiouni.",
+    "media.title": "Media appearances",
+    "media.sub": "Interviews and television & radio segments.",
+    "contact.title": "Get in touch",
+    "contact.lead":
+      "I'd be glad to hear from you for lectures, interviews, and academic or media collaboration.",
+    "contact.email": "Email",
+    "contact.facebook": "Facebook",
+    "card.read": "Read article",
+    "card.watch": "Watch",
+    "footer.rights": "All rights reserved",
+  },
+} as const;
+
+export type DictKey = keyof (typeof dict)["ar"];
+
+export function translate(lang: Lang, key: DictKey): string {
+  return dict[lang][key] ?? dict.ar[key] ?? key;
+}
