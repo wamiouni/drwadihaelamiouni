@@ -3,9 +3,75 @@
 import { useMemo, useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 import { ItemCard } from "@/components/item-card";
+import { ThumbImage } from "@/components/thumb-image";
+import { formatDate } from "@/lib/format";
+import type { DictKey } from "@/lib/i18n";
 import type { Item } from "@/db/schema";
 
 const PAGE = 18;
+
+/* Lead story — the newest item, magazine-feature sized. */
+function FeatureCard({ item }: { item: Item }) {
+  const { lang, t } = useLanguage();
+  const date = formatDate(item.publishedDate, lang);
+  const isMedia = item.type === "media";
+
+  return (
+    <a
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group rise mb-10 grid overflow-hidden rounded-3xl border border-line bg-seashell transition duration-300 hover:border-mauve/30 hover:shadow-[0_24px_50px_-24px_rgba(59,15,47,0.45)] md:grid-cols-[1.2fr_1fr]"
+    >
+      <div className="relative aspect-[3/2] overflow-hidden bg-champagne md:aspect-auto md:h-full md:min-h-[320px]">
+        <ThumbImage
+          url={item.thumbnailUrl}
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+        />
+        <span className="absolute inset-0 bg-mauve opacity-0 mix-blend-multiply transition duration-500 group-hover:opacity-25" />
+        {isMedia && (
+          <>
+            <span className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent to-55%" />
+            <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-seashell/90 text-xl text-plum shadow-sm transition duration-300 group-hover:scale-110">
+              ▶
+            </span>
+          </>
+        )}
+      </div>
+
+      <div className="flex flex-col justify-center gap-4 p-7 md:p-10">
+        <div className="flex flex-wrap items-center gap-2.5 text-xs">
+          <span className="rounded-full bg-champagne px-3 py-1 font-medium text-plum">
+            {item.source}
+          </span>
+          {isMedia && item.mediaFormat && (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-antique px-3 py-1 text-plum">
+              <span className="text-mauve">▶</span>
+              {t(`fmt.${item.mediaFormat}` as DictKey)}
+            </span>
+          )}
+          {date && (
+            <span className="uppercase tracking-wide text-meta">{date}</span>
+          )}
+        </div>
+        <h2 className="font-display text-2xl leading-snug text-ink md:text-3xl">
+          <span className="title-underline">{item.title}</span>
+        </h2>
+        {item.excerpt && (
+          <p className="line-clamp-3 leading-relaxed text-muted">
+            {item.excerpt}
+          </p>
+        )}
+        <span className="flex items-center gap-1.5 text-sm font-medium text-mauve">
+          {item.type === "article" ? t("card.read") : t("card.watch")}
+          <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
+            ↗
+          </span>
+        </span>
+      </div>
+    </a>
+  );
+}
 
 export function ItemBrowser({
   items,
@@ -61,13 +127,21 @@ export function ItemBrowser({
     return r;
   }, [items, q, year, format, sort, kind]);
 
-  const shown = filtered.slice(0, limit);
+  // Lead story only in the pristine view (no search/filter, newest first)
+  const pristine =
+    q === "" && year === "all" && format === "all" && sort === "newest";
+  const feature = pristine && filtered.length > 0 ? filtered[0] : null;
+  const rest = feature ? filtered.slice(1) : filtered;
+  const shown = rest.slice(0, limit);
+
   const selectCls =
     "select-pill rounded-full border border-line bg-seashell ps-4 py-2 text-sm text-ink outline-none transition focus:border-mauve";
+  const gridKey = `${q}|${year}|${format}|${sort}`;
 
   return (
     <div>
-      <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+      {/* Search + sort (+ format) */}
+      <div className="rise mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
         <input
           value={q}
           onChange={(e) => {
@@ -79,21 +153,6 @@ export function ItemBrowser({
           )}
           className="flex-1 rounded-full border border-line bg-seashell px-5 py-2.5 text-sm text-ink outline-none transition placeholder:text-muted focus:border-mauve"
         />
-        <select
-          value={year}
-          onChange={(e) => {
-            setYear(e.target.value);
-            setLimit(PAGE);
-          }}
-          className={selectCls}
-        >
-          <option value="all">{t("browse.allYears")}</option>
-          {years.map((y) => (
-            <option key={y} value={y}>
-              {y}
-            </option>
-          ))}
-        </select>
         {kind === "media" && formats.length > 0 && (
           <select
             value={format}
@@ -106,7 +165,7 @@ export function ItemBrowser({
             <option value="all">{t("browse.allFormats")}</option>
             {formats.map((f) => (
               <option key={f} value={f}>
-                {t(`fmt.${f}` as never)}
+                {t(`fmt.${f}` as DictKey)}
               </option>
             ))}
           </select>
@@ -121,17 +180,69 @@ export function ItemBrowser({
         </select>
       </div>
 
-      {shown.length === 0 ? (
-        <p className="py-16 text-center text-muted">{t("browse.noResults")}</p>
-      ) : (
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {shown.map((it) => (
-            <ItemCard key={it.id} item={it} />
+      {/* Year scrubber */}
+      {years.length > 1 && (
+        <div
+          className="rise no-scrollbar mb-8 flex gap-2 overflow-x-auto pb-1"
+          style={{ "--d": "0.08s" } as React.CSSProperties}
+        >
+          <button
+            onClick={() => {
+              setYear("all");
+              setLimit(PAGE);
+            }}
+            className={`shrink-0 rounded-full border px-4 py-1.5 text-sm transition ${
+              year === "all"
+                ? "border-mauve bg-mauve text-seashell"
+                : "border-line text-plum hover:border-mauve"
+            }`}
+          >
+            {t("browse.all")}
+          </button>
+          {years.map((y) => (
+            <button
+              key={y}
+              onClick={() => {
+                setYear(y);
+                setLimit(PAGE);
+              }}
+              className={`shrink-0 rounded-full border px-4 py-1.5 text-sm tabular-nums transition ${
+                year === y
+                  ? "border-mauve bg-mauve text-seashell"
+                  : "border-line text-plum hover:border-mauve"
+              }`}
+            >
+              {y}
+            </button>
           ))}
         </div>
       )}
 
-      {shown.length < filtered.length && (
+      {feature && <FeatureCard item={feature} />}
+
+      {shown.length === 0 && !feature ? (
+        <div className="py-20 text-center">
+          <div className="font-display text-3xl text-mauve/40">٭</div>
+          <p className="mt-4 text-muted">{t("browse.noResults")}</p>
+        </div>
+      ) : (
+        <div
+          key={gridKey}
+          className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {shown.map((it, i) => (
+            <div
+              key={it.id}
+              className="card-in"
+              style={{ animationDelay: `${Math.min(i * 45, 400)}ms` }}
+            >
+              <ItemCard item={it} />
+            </div>
+          ))}
+        </div>
+      )}
+
+      {shown.length < rest.length && (
         <div className="mt-10 text-center">
           <button
             onClick={() => setLimit((l) => l + PAGE)}

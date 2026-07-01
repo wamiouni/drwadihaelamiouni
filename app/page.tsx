@@ -19,8 +19,14 @@ export default async function Home() {
         titleKey="home.latestArticles"
         viewAllHref="/articles"
         items={articles}
+        index={1}
       />
-      <Rail titleKey="home.latestMedia" viewAllHref="/media" items={media} />
+      <Rail
+        titleKey="home.latestMedia"
+        viewAllHref="/media"
+        items={media}
+        index={2}
+      />
     </>
   );
 }

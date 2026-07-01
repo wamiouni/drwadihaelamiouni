@@ -50,7 +50,7 @@ export function Header() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm text-ink/80 transition hover:text-mauve"
+              className="relative text-sm text-ink/80 transition hover:text-mauve after:absolute after:-bottom-1 after:start-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-mauve after:transition-transform after:duration-300 hover:after:scale-x-100 rtl:after:origin-right"
             >
               {t(l.key)}
             </Link>

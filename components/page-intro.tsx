@@ -13,10 +13,29 @@ export function PageIntro({
   const { t } = useLanguage();
   return (
     <div className="mb-10">
-      <h1 className="font-display text-3xl text-ink md:text-4xl">
+      <div className="rise mb-3 flex items-center gap-4">
+        <span
+          aria-hidden
+          className="font-display text-lg leading-none text-mauve/60"
+        >
+          ٭
+        </span>
+        <span className="h-px flex-1 bg-line" />
+      </div>
+      <h1
+        className="rise font-display text-4xl text-ink md:text-5xl"
+        style={{ "--d": "0.08s" } as React.CSSProperties}
+      >
         {t(titleKey)}
       </h1>
-      {subKey && <p className="mt-2 text-muted">{t(subKey)}</p>}
+      {subKey && (
+        <p
+          className="rise mt-3 text-muted"
+          style={{ "--d": "0.16s" } as React.CSSProperties}
+        >
+          {t(subKey)}
+        </p>
+      )}
     </div>
   );
 }

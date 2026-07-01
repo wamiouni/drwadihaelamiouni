@@ -19,15 +19,20 @@ export function AboutSection() {
       <div className="grid items-center gap-10 md:grid-cols-[1fr_300px]">
         {/* Text — inline-start (opposite the hero portrait) */}
         <div className="text-center md:text-start">
-          <span className="mx-auto mb-4 block h-px w-12 bg-mauve/50 md:mx-0" />
-          <h2 className="text-2xl text-ink">{t("home.about.title")}</h2>
-          <p className="mx-auto mt-4 max-w-xl leading-relaxed text-ink/80 md:mx-0">
+          <div className="mb-3 flex items-center justify-center gap-4 md:justify-start">
+            <span className="font-display text-lg leading-none text-mauve/60">
+              ٭
+            </span>
+            <h2 className="text-2xl text-ink">{t("home.about.title")}</h2>
+            <span className="hidden h-px flex-1 bg-line md:block" />
+          </div>
+          <p className="dropcap mx-auto mt-4 max-w-xl leading-[1.9] text-ink/80 md:mx-0">
             {t("about.body")}
           </p>
         </div>
 
         {/* Image — inline-end, mirrors the hero on the opposite side */}
-        <div className="relative mx-auto aspect-[4/5] w-56 overflow-hidden rounded-2xl border border-line bg-champagne shadow-[0_18px_40px_-20px_rgba(110,75,88,0.4)] md:w-full">
+        <div className="relative mx-auto aspect-[4/5] w-56 overflow-hidden rounded-2xl border border-line bg-champagne shadow-[0_18px_40px_-20px_rgba(59,15,47,0.4)] md:w-full">
           {hasImg ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img

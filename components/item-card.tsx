@@ -26,7 +26,7 @@ export function ItemCard({ item }: { item: Item }) {
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-seashell transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(110,75,88,0.4)]"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-seashell transition duration-300 hover:-translate-y-1 hover:border-mauve/30 hover:shadow-[0_18px_40px_-20px_rgba(59,15,47,0.4)]"
     >
       <div className="relative aspect-[3/2] w-full overflow-hidden border-b border-line bg-champagne">
         {src ? (
@@ -36,17 +36,19 @@ export function ItemCard({ item }: { item: Item }) {
             alt=""
             loading="lazy"
             onError={() => setStage((s) => (s + 1) as 0 | 1 | 2)}
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center font-display text-4xl text-mauve/40">
             {lang === "ar" ? "و" : "W"}
           </div>
         )}
+        {/* Plum duotone wash on hover */}
+        <span className="absolute inset-0 bg-mauve opacity-0 mix-blend-multiply transition duration-500 group-hover:opacity-25" />
         {isMedia && (
           <>
             <span className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent to-55%" />
-            <span className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-seashell/90 text-plum shadow-sm">
+            <span className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-seashell/90 text-plum shadow-sm transition duration-300 group-hover:scale-110">
               ▶
             </span>
           </>
@@ -69,13 +71,16 @@ export function ItemCard({ item }: { item: Item }) {
           )}
         </div>
         <h3 className="font-display text-lg leading-[1.5] text-ink line-clamp-3">
-          {item.title}
+          <span className="title-underline">{item.title}</span>
         </h3>
         {item.excerpt && (
           <p className="line-clamp-2 text-sm text-muted">{item.excerpt}</p>
         )}
-        <span className="mt-auto pt-1 text-xs font-medium text-mauve opacity-0 transition group-hover:opacity-100">
-          {item.type === "article" ? t("card.read") : t("card.watch")} ↗
+        <span className="mt-auto flex items-center gap-1 pt-1 text-xs font-medium text-mauve opacity-0 transition duration-300 group-hover:opacity-100">
+          {item.type === "article" ? t("card.read") : t("card.watch")}
+          <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
+            ↗
+          </span>
         </span>
       </div>
     </a>

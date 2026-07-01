@@ -7,16 +7,26 @@ import { ItemCard } from "@/components/item-card";
 import type { DictKey } from "@/lib/i18n";
 import type { Item } from "@/db/schema";
 
+const AR_DIGITS = "٠١٢٣٤٥٦٧٨٩";
+
+function folio(n: number, lang: string): string {
+  const s = String(n).padStart(2, "0");
+  if (lang !== "ar") return s;
+  return [...s].map((d) => AR_DIGITS[Number(d)]).join("");
+}
+
 export function Rail({
   titleKey,
   viewAllHref,
   items,
+  index = 1,
 }: {
   titleKey: DictKey;
   viewAllHref: string;
   items: Item[];
+  index?: number;
 }) {
-  const { t, dir } = useLanguage();
+  const { t, lang, dir } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
 
   const scroll = (amount: number) =>
@@ -28,9 +38,17 @@ export function Rail({
   if (!items.length) return null;
 
   return (
-    <section className="mx-auto max-w-6xl px-5 py-10">
+    <section className="mx-auto max-w-6xl px-5 py-12">
+      {/* Folio kicker + hairline rule */}
+      <div className="mb-3 flex items-center gap-4">
+        <span className="text-xs uppercase tracking-[0.22em] text-mauve">
+          {folio(index, lang)}
+        </span>
+        <span className="h-px flex-1 bg-line" />
+      </div>
+
       <div className="mb-6 flex items-center justify-between gap-4">
-        <h2 className="text-2xl text-ink">{t(titleKey)}</h2>
+        <h2 className="text-2xl text-ink md:text-3xl">{t(titleKey)}</h2>
         <div className="flex items-center gap-2">
           <Link
             href={viewAllHref}
@@ -59,8 +77,12 @@ export function Rail({
         ref={ref}
         className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2"
       >
-        {items.map((it) => (
-          <div key={it.id} className="w-[280px] shrink-0 snap-start sm:w-[300px]">
+        {items.map((it, i) => (
+          <div
+            key={it.id}
+            className="card-in w-[280px] shrink-0 snap-start sm:w-[300px]"
+            style={{ animationDelay: `${Math.min(i * 60, 360)}ms` }}
+          >
             <ItemCard item={it} />
           </div>
         ))}
