@@ -21,7 +21,7 @@ function FeatureCard({ item }: { item: Item }) {
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group rise mb-10 grid overflow-hidden rounded-3xl border border-line bg-seashell transition duration-300 hover:border-mauve/30 hover:shadow-[0_24px_50px_-24px_rgba(59,15,47,0.45)] md:grid-cols-[1.2fr_1fr]"
+      className="group rise mb-10 grid overflow-hidden rounded-3xl border border-mauve/60 bg-seashell transition duration-300 hover:border-mauve hover:shadow-[0_24px_50px_-24px_rgba(59,15,47,0.45)] md:grid-cols-[1.2fr_1fr]"
     >
       <div className="relative aspect-[3/2] overflow-hidden bg-champagne md:aspect-auto md:h-full md:min-h-[320px]">
         <ThumbImage
