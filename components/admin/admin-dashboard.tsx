@@ -239,9 +239,9 @@ export function AdminDashboard({ items }: { items: Item[] }) {
             {draft.thumbnailUrl && (
               // eslint-disable-next-line @next/next/no-img-element
               <img
-                src={draft.thumbnailUrl}
+                src={`/api/thumb?u=${encodeURIComponent(draft.thumbnailUrl)}`}
                 alt=""
-                className="h-32 w-auto rounded-xl border border-line object-cover"
+                className="h-32 w-auto rounded-xl border border-line bg-champagne object-cover"
               />
             )}
             <div className="flex gap-2">
