@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import {
   Newsreader,
   Amiri,
-  IBM_Plex_Sans,
+  Montserrat,
   IBM_Plex_Sans_Arabic,
 } from "next/font/google";
 import "./globals.css";
@@ -21,11 +21,14 @@ const amiri = Amiri({
   variable: "--font-amiri",
   display: "swap",
 });
-const plex = IBM_Plex_Sans({
+const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-plex",
+  variable: "--font-montserrat",
   display: "swap",
+  // No synthetic (Arial-based) fallback: it contains Arabic glyphs and would
+  // swallow Arabic text before it reaches IBM Plex Sans Arabic in the stack.
+  adjustFontFallback: false,
 });
 const plexAr = IBM_Plex_Sans_Arabic({
   subsets: ["arabic"],
@@ -47,7 +50,7 @@ export default function RootLayout({
     <html
       lang="ar"
       dir="rtl"
-      className={`${newsreader.variable} ${amiri.variable} ${plex.variable} ${plexAr.variable} h-full antialiased`}
+      className={`${newsreader.variable} ${amiri.variable} ${montserrat.variable} ${plexAr.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-parchment text-ink">
         <LanguageProvider>

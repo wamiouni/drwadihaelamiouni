@@ -15,7 +15,10 @@
   --color-line: #efdccd;
 
   /* Fonts (variables provided by next/font in layout) */
-  --font-body: var(--font-plex-ar), var(--font-plex), system-ui, sans-serif;
+  /* Literal "Montserrat" (not var(--font-montserrat)): the next/font variable
+     appends an Arial-based "Montserrat Fallback" that contains Arabic glyphs
+     and would swallow Arabic text before it reaches IBM Plex Sans Arabic. */
+  --font-body: "Montserrat", var(--font-plex-ar), system-ui, sans-serif;
   --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
   --font-arabic: var(--font-amiri), Georgia, serif;
 }
