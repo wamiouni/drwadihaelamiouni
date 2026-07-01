@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 import { formatDate } from "@/lib/format";
 import type { DictKey } from "@/lib/i18n";
@@ -10,6 +11,16 @@ export function ItemCard({ item }: { item: Item }) {
   const date = formatDate(item.publishedDate, lang);
   const isMedia = item.type === "media";
 
+  // Load thumbnail directly; on failure retry via our referer-spoofing proxy
+  // (bypasses hotlink protection); if that fails too, fall back to the monogram.
+  const [stage, setStage] = useState<0 | 1 | 2>(0);
+  const src =
+    !item.thumbnailUrl || stage === 2
+      ? null
+      : stage === 0
+        ? item.thumbnailUrl
+        : `/api/thumb?u=${encodeURIComponent(item.thumbnailUrl)}`;
+
   return (
     <a
       href={item.url}
@@ -18,12 +29,13 @@ export function ItemCard({ item }: { item: Item }) {
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-seashell transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(110,75,88,0.4)]"
     >
       <div className="relative aspect-[3/2] w-full overflow-hidden border-b border-line bg-champagne">
-        {item.thumbnailUrl ? (
+        {src ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={item.thumbnailUrl}
+            src={src}
             alt=""
             loading="lazy"
+            onError={() => setStage((s) => (s + 1) as 0 | 1 | 2)}
             className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
           />
         ) : (
