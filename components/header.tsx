@@ -48,7 +48,10 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-parchment/85 backdrop-blur">
+    // Shield pseudo lives on the plain sticky wrapper — putting it on the
+    // backdrop-blur element itself corrupts the blur compositing in Chromium.
+    <div className="site-header sticky top-0 z-40">
+      <header className="border-b border-line bg-parchment/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         <Link
           href="/"
@@ -101,6 +104,7 @@ export function Header() {
           ))}
         </nav>
       )}
-    </header>
+      </header>
+    </div>
   );
 }

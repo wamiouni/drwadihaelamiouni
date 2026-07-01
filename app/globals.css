@@ -74,6 +74,19 @@ h3,
 
 /* ——— Editorial upscale ——— */
 
+/* iOS Safari paints page content from above the viewport behind the status
+   bar while scrolling, so cards appear to float above the sticky header.
+   A solid shield attached above the header masks that region (also covers
+   rubber-band overscroll). Invisible everywhere else. */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 100%;
+  height: 50vh;
+  background: var(--color-parchment);
+}
+
 /* Paper grain: a whisper of print texture over everything. */
 body::after {
   content: "";
