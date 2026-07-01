@@ -47,21 +47,6 @@ export function Footer() {
           <Link href="/contact" className="transition hover:text-seashell">
             {t("nav.contact")}
           </Link>
-          <a
-            href={SITE.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition hover:text-seashell"
-          >
-            Facebook
-          </a>
-          <a
-            href={`mailto:${SITE.email}`}
-            className="transition hover:text-seashell"
-            dir="ltr"
-          >
-            {SITE.email}
-          </a>
         </div>
 
         <div className="mt-8 text-center text-xs text-seashell/45">
