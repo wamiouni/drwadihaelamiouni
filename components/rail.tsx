@@ -29,14 +29,14 @@ export function Rail({
 
   return (
     <section className="mx-auto max-w-6xl px-5 py-10">
-      <div className="mb-5 flex items-end justify-between gap-4">
-        <h2 className="text-2xl text-plum">{t(titleKey)}</h2>
+      <div className="mb-6 flex items-center justify-between gap-4">
+        <h2 className="text-2xl text-ink">{t(titleKey)}</h2>
         <div className="flex items-center gap-2">
           <Link
             href={viewAllHref}
-            className="text-sm text-mauve transition hover:text-plum"
+            className="rounded-full border border-mauve px-4 py-1.5 text-sm text-plum transition hover:bg-antique"
           >
-            {t("common.viewAll")} ↗
+            {t("common.viewAll")}
           </Link>
           <button
             onClick={() => scroll(-360)}
@@ -57,13 +57,10 @@ export function Rail({
 
       <div
         ref={ref}
-        className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2"
+        className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2"
       >
         {items.map((it) => (
-          <div
-            key={it.id}
-            className="w-[260px] shrink-0 snap-start sm:w-[280px]"
-          >
+          <div key={it.id} className="w-[280px] shrink-0 snap-start sm:w-[300px]">
             <ItemCard item={it} />
           </div>
         ))}

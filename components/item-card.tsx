@@ -2,28 +2,22 @@
 
 import { useLanguage } from "@/components/language-provider";
 import { formatDate } from "@/lib/format";
+import type { DictKey } from "@/lib/i18n";
 import type { Item } from "@/db/schema";
-
-const FORMAT_ICON: Record<string, string> = {
-  tv: "📺",
-  radio: "🎙️",
-  video: "▶️",
-  podcast: "🎧",
-  print: "📰",
-};
 
 export function ItemCard({ item }: { item: Item }) {
   const { lang, t } = useLanguage();
   const date = formatDate(item.publishedDate, lang);
+  const isMedia = item.type === "media";
 
   return (
     <a
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-seashell transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-16px_rgba(110,75,88,0.45)]"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-seashell transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(110,75,88,0.4)]"
     >
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-champagne">
+      <div className="relative aspect-[3/2] w-full overflow-hidden border-b border-line bg-champagne">
         {item.thumbnailUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -37,27 +31,38 @@ export function ItemCard({ item }: { item: Item }) {
             {lang === "ar" ? "و" : "W"}
           </div>
         )}
-        {item.type === "media" && (
-          <span className="absolute bottom-2 start-2 rounded-full bg-ink/75 px-2 py-0.5 text-xs text-parchment">
-            {FORMAT_ICON[item.mediaFormat ?? "video"] ?? "▶️"}
-          </span>
+        {isMedia && (
+          <>
+            <span className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent to-55%" />
+            <span className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-seashell/90 text-plum shadow-sm">
+              ▶
+            </span>
+          </>
         )}
       </div>
 
-      <div className="flex flex-1 flex-col gap-2 p-4">
-        <div className="flex flex-wrap items-center gap-2 text-xs">
-          <span className="rounded-full bg-antique px-2 py-0.5 font-medium text-mauve-dark">
+      <div className="flex flex-1 flex-col gap-2.5 p-5">
+        <div className="flex flex-wrap items-center gap-2.5 text-xs">
+          <span className="rounded-full bg-champagne px-3 py-1 font-medium text-plum">
             {item.source}
           </span>
-          {date && <span className="text-muted">{date}</span>}
+          {isMedia && item.mediaFormat && (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-antique px-3 py-1 text-plum">
+              <span className="text-mauve">▶</span>
+              {t(`fmt.${item.mediaFormat}` as DictKey)}
+            </span>
+          )}
+          {date && (
+            <span className="uppercase tracking-wide text-meta">{date}</span>
+          )}
         </div>
-        <h3 className="font-display text-lg leading-snug text-ink line-clamp-3">
+        <h3 className="font-display text-lg leading-[1.5] text-ink line-clamp-3">
           {item.title}
         </h3>
         {item.excerpt && (
           <p className="line-clamp-2 text-sm text-muted">{item.excerpt}</p>
         )}
-        <span className="mt-auto pt-1 text-xs font-medium text-plum opacity-0 transition group-hover:opacity-100">
+        <span className="mt-auto pt-1 text-xs font-medium text-mauve opacity-0 transition group-hover:opacity-100">
           {item.type === "article" ? t("card.read") : t("card.watch")} ↗
         </span>
       </div>

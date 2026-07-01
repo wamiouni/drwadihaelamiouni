@@ -13,7 +13,7 @@ export function PageIntro({
   const { t } = useLanguage();
   return (
     <div className="mb-10">
-      <h1 className="font-display text-3xl text-plum md:text-4xl">
+      <h1 className="font-display text-3xl text-ink md:text-4xl">
         {t(titleKey)}
       </h1>
       {subKey && <p className="mt-2 text-muted">{t(subKey)}</p>}

@@ -33,8 +33,16 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-parchment/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <Link href="/" className="font-display text-xl text-plum">
-          {lang === "ar" ? SITE.nameAr : SITE.nameEn}
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 text-ink"
+        >
+          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-mauve font-display text-base text-plum">
+            {lang === "ar" ? "و" : "W"}
+          </span>
+          <span className="font-display text-xl">
+            {lang === "ar" ? SITE.nameAr : SITE.nameEn}
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">

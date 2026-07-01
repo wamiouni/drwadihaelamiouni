@@ -11,6 +11,7 @@
   --color-plum: #6e4b58;
   --color-ink: #2b2226;
   --color-muted: #8a7378;
+  --color-meta: #a5949a;
   --color-line: #efdccd;
 
   /* Fonts (variables provided by next/font in layout) */
@@ -37,13 +38,14 @@ body {
 }
 
 /* Headings: Amiri for Arabic (RTL), Newsreader for Latin (LTR) */
+/* Arabic display = Amiri 700 (bold, distinguished); Latin display = Newsreader 400 */
 h1,
 h2,
 h3,
 .font-display {
   font-family: var(--font-arabic);
-  font-weight: 500;
-  line-height: 1.2;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
 [dir="ltr"] h1,
@@ -51,6 +53,7 @@ h3,
 [dir="ltr"] h3,
 [dir="ltr"] .font-display {
   font-family: var(--font-serif);
+  font-weight: 400;
 }
 
 ::selection {
