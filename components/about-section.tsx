@@ -7,11 +7,11 @@ export function AboutSection() {
   const { t, lang } = useLanguage();
   const [hasImg, setHasImg] = useState(false);
 
-  // Show /about.jpg only if it exists (monogram fallback, no broken icon).
+  // Show /about.webp only if it exists (monogram fallback, no broken icon).
   useEffect(() => {
     const im = new window.Image();
     im.onload = () => setHasImg(true);
-    im.src = "/about.jpg";
+    im.src = "/about.webp";
   }, []);
 
   return (
@@ -31,7 +31,7 @@ export function AboutSection() {
           {hasImg ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src="/about.jpg"
+              src="/about.webp"
               alt=""
               className="h-full w-full object-cover"
             />
