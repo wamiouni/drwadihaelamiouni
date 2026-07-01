@@ -9,11 +9,11 @@ export function Hero() {
   const { t, lang } = useLanguage();
   const [hasPortrait, setHasPortrait] = useState(false);
 
-  // Probe for /portrait.jpg — show it only if it actually exists (no broken icon).
+  // Probe for /portrait.webp — show it only if it actually exists (no broken icon).
   useEffect(() => {
     const im = new window.Image();
     im.onload = () => setHasPortrait(true);
-    im.src = "/portrait.jpg";
+    im.src = "/portrait.webp";
   }, []);
 
   return (
@@ -23,7 +23,7 @@ export function Hero() {
           {hasPortrait ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src="/portrait.jpg"
+              src="/portrait.webp"
               alt={lang === "ar" ? SITE.nameAr : SITE.nameEn}
               className="h-full w-full object-cover"
             />
