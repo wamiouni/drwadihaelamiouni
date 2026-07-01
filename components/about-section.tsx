@@ -16,9 +16,10 @@ export function AboutSection() {
 
   return (
     <section className="bg-mauve text-seashell">
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[1fr_300px] md:py-20">
-        {/* Text — inline-start (opposite the hero portrait) */}
-        <div className="text-center md:text-start">
+      <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[300px_1fr] md:py-20">
+        {/* Text — inline-end (the hero portrait sits at inline-end, so the
+            About image takes inline-start to mirror it) */}
+        <div className="text-center md:order-2 md:text-start">
           <div className="mb-3 flex items-center justify-center gap-4 md:justify-start">
             <span className="font-display text-lg leading-none text-antique/80">
               ٭
@@ -31,8 +32,8 @@ export function AboutSection() {
           </p>
         </div>
 
-        {/* Image — inline-end, mirrors the hero on the opposite side */}
-        <div className="relative mx-auto aspect-[4/5] w-56 overflow-hidden rounded-2xl border border-seashell/25 bg-champagne shadow-[0_22px_48px_-20px_rgba(0,0,0,0.5)] md:w-full">
+        {/* Image — inline-start, opposite the hero portrait */}
+        <div className="relative mx-auto aspect-[4/5] w-56 overflow-hidden rounded-2xl border border-seashell/25 bg-champagne shadow-[0_22px_48px_-20px_rgba(0,0,0,0.5)] md:order-1 md:w-full">
           {hasImg ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
