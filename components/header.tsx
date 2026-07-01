@@ -15,14 +15,31 @@ const LINKS: { href: string; key: DictKey }[] = [
 
 function LangToggle() {
   const { lang, toggle } = useLanguage();
+  const pill = (active: boolean) =>
+    `rounded-full px-3 py-1 text-xs font-medium transition ${
+      active ? "bg-mauve text-seashell" : "text-plum hover:text-mauve"
+    }`;
   return (
-    <button
-      onClick={toggle}
-      className="rounded-full border border-line px-3 py-1 text-xs font-medium text-plum transition hover:border-mauve hover:text-mauve"
-      aria-label="Toggle language"
+    <div
+      className="flex items-center gap-0.5 rounded-full bg-champagne p-1"
+      role="group"
+      aria-label="Language"
     >
-      {lang === "ar" ? "EN" : "ع"}
-    </button>
+      <button
+        onClick={() => lang !== "ar" && toggle()}
+        className={pill(lang === "ar")}
+        aria-pressed={lang === "ar"}
+      >
+        العربية
+      </button>
+      <button
+        onClick={() => lang !== "en" && toggle()}
+        className={pill(lang === "en")}
+        aria-pressed={lang === "en"}
+      >
+        EN
+      </button>
+    </div>
   );
 }
 
