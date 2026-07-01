@@ -42,8 +42,10 @@ export function Hero() {
           >
             {lang === "ar" ? SITE.nameAr : SITE.nameEn}
           </h1>
+          {/* Secondary (transliterated) name — desktop only; on mobile it
+              costs a line without adding information. */}
           <div
-            className="rise order-3 mt-2 font-display text-xl text-plum/80 md:text-2xl"
+            className="rise order-3 mt-2 hidden font-display text-xl text-plum/80 md:block md:text-2xl"
             style={{ "--d": "0.2s" } as React.CSSProperties}
           >
             {lang === "ar" ? SITE.nameEn : SITE.nameAr}
@@ -95,7 +97,7 @@ export function Hero() {
 
         {/* Portrait — arched; leads the page on mobile */}
         <div
-          className="rise order-1 relative mx-auto mt-2 aspect-[4/5] w-40 md:order-2 md:mt-0 md:w-full md:max-w-sm"
+          className="rise order-1 relative mx-auto mt-2 aspect-[4/5] w-48 md:order-2 md:mt-0 md:w-full md:max-w-sm"
           style={{ "--d": "0.08s" } as React.CSSProperties}
         >
           <div className="h-full w-full overflow-hidden rounded-t-full rounded-b-2xl border border-line bg-champagne shadow-[0_24px_50px_-24px_rgba(59,15,47,0.45)]">
