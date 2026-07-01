@@ -74,6 +74,13 @@ h3,
 
 /* ——— Editorial upscale ——— */
 
+/* Arabic is a connected script — letter-spacing breaks the joins between
+   glyphs. Neutralize every tracking utility in RTL; Latin keeps its
+   letterspaced kickers in LTR. */
+[dir="rtl"] [class*="tracking-"] {
+  letter-spacing: 0 !important;
+}
+
 /* iOS Safari paints page content from above the viewport behind the status
    bar while scrolling, so cards appear to float above the sticky header.
    A solid shield attached above the header masks that region (also covers

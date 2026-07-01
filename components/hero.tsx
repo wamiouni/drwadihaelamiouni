@@ -31,7 +31,11 @@ export function Hero() {
             bio is start-aligned reading text demoted below the CTAs. */}
         <div className="order-2 flex flex-col text-center md:order-1 md:block md:text-start">
           <p
-            className="rise order-1 mb-5 text-balance text-[10px] uppercase tracking-[0.14em] text-mauve sm:text-xs sm:tracking-[0.22em]"
+            className={`rise order-1 mb-5 text-balance uppercase text-mauve ${
+              lang === "ar"
+                ? "text-xs sm:text-sm"
+                : "text-[10px] tracking-[0.14em] sm:text-xs sm:tracking-[0.22em]"
+            }`}
             style={{ "--d": "0.05s" } as React.CSSProperties}
           >
             {t("hero.identity")}
