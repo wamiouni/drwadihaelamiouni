@@ -54,7 +54,7 @@ export function Hero() {
           <div className="mt-8 flex justify-center gap-3 md:justify-start">
             <Link
               href="/articles"
-              className="rounded-full bg-plum px-6 py-2.5 text-sm font-medium text-seashell transition hover:brightness-110"
+              className="rounded-full bg-mauve px-6 py-2.5 text-sm font-medium text-seashell transition hover:bg-mauve-dark"
             >
               {t("hero.readArticles")}
             </Link>
