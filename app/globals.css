@@ -158,6 +158,10 @@ body::after {
   padding-inline-end: 0.12em;
   color: var(--color-plum);
 }
+/* Drop cap variant for dark plum surfaces. */
+[dir="ltr"] .dropcap-cream::first-letter {
+  color: var(--color-antique);
+}
 
 @media (prefers-reduced-motion: reduce) {
   .rise,
