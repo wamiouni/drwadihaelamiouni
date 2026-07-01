@@ -113,24 +113,18 @@ body::after {
   animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Card title underline: draws itself in on hover, from the logical start. */
+/* Card title underline: fades in on hover. Native text-decoration wraps
+   correctly across multiple lines and in RTL (a background-gradient underline
+   strikes through wrapped Arabic titles). Offset clears Arabic descenders. */
 .title-underline {
-  background-image: linear-gradient(
-    to right,
-    var(--color-mauve),
-    var(--color-mauve)
-  );
-  background-repeat: no-repeat;
-  background-size: 0% 1.5px;
-  background-position: bottom left;
-  transition: background-size 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  padding-bottom: 3px;
-}
-[dir="rtl"] .title-underline {
-  background-position: bottom right;
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.32em;
+  transition: text-decoration-color 0.4s ease;
 }
 .group:hover .title-underline {
-  background-size: 100% 1.5px;
+  text-decoration-color: var(--color-mauve);
 }
 
 /* Ghost letters: enormous watermark glyphs. */
