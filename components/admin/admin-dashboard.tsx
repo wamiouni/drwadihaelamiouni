@@ -191,7 +191,7 @@ export function AdminDashboard({ items }: { items: Item[] }) {
               <label className="text-xs text-muted">
                 اللغة
                 <select
-                  className={field}
+                  className={`${field} select-pill`}
                   value={draft.language}
                   onChange={(e) =>
                     setDraft({
@@ -208,7 +208,7 @@ export function AdminDashboard({ items }: { items: Item[] }) {
                 <label className="text-xs text-muted">
                   النوع
                   <select
-                    className={field}
+                    className={`${field} select-pill`}
                     value={draft.mediaFormat}
                     onChange={(e) =>
                       setDraft({ ...draft, mediaFormat: e.target.value })

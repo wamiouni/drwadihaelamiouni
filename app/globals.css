@@ -71,3 +71,18 @@ h3,
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Pill selects: replace the native dropdown arrow (misaligned in pills,
+   not RTL-aware) with a custom chevron placed at the logical end. */
+.select-pill {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%236E4B58' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 12px 8px;
+  background-position: right 16px center;
+  padding-inline-end: 40px;
+}
+[dir="rtl"] .select-pill {
+  background-position: left 16px center;
+}

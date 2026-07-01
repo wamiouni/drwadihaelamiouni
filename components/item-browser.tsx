@@ -63,7 +63,7 @@ export function ItemBrowser({
 
   const shown = filtered.slice(0, limit);
   const selectCls =
-    "rounded-full border border-line bg-seashell px-4 py-2 text-sm text-ink outline-none transition focus:border-mauve";
+    "select-pill rounded-full border border-line bg-seashell ps-4 py-2 text-sm text-ink outline-none transition focus:border-mauve";
 
   return (
     <div>
