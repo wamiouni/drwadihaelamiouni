@@ -1,6 +1,6 @@
 export const SITE = {
-  nameAr: "د. وديعة الأميوني",
-  nameEn: "Dr. Wadiha El Amiouni",
+  nameAr: "أ.د. وديعة الأميوني",
+  nameEn: "Prof. Dr. Wadiha El Amiouni",
   email: "Wadiha.el-amiouni@ul.edu.lb",
   facebook: "https://www.facebook.com/namiouni",
 };

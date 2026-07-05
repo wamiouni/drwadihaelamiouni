@@ -38,7 +38,7 @@ const plexAr = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  title: "د. وديعة الأميوني | Dr. Wadiha El Amiouni",
+  title: "أ.د. وديعة الأميوني | Prof. Dr. Wadiha El Amiouni",
   description:
     "مقالات وظهور إعلامي للدكتورة وديعة الأميوني — أستاذة علم الاجتماع في الجامعة اللبنانية.",
 };

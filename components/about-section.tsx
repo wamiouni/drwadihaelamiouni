@@ -27,9 +27,20 @@ export function AboutSection() {
             <h2 className="text-2xl text-seashell">{t("home.about.title")}</h2>
             <span className="hidden h-px flex-1 bg-seashell/20 md:block" />
           </div>
-          <p className="dropcap dropcap-cream mx-auto mt-4 max-w-xl leading-[1.9] text-seashell/85 md:mx-0">
-            {t("about.body")}
-          </p>
+          <div className="mx-auto mt-4 max-w-xl md:mx-0">
+            {t("about.body")
+              .split("\n\n")
+              .map((para, i) => (
+                <p
+                  key={i}
+                  className={`leading-[1.9] text-seashell/85 ${
+                    i === 0 ? "dropcap dropcap-cream" : "mt-4"
+                  }`}
+                >
+                  {para}
+                </p>
+              ))}
+          </div>
         </div>
 
         {/* Image — inline-start, opposite the hero portrait */}
