@@ -60,6 +60,8 @@ articles = [
  ('https://alhadathamagazine.blogspot.com/2014/01/blog-post.html', 'المرأة العربية وجرائم الشرف', 'مجلة الحداثة / Al-Hadatha Magazine', '2014-04-01', 'المرأة'),
  ('https://alhadathamagazine.blogspot.com/2012/01/blog-post.html', 'العنف في الخطاب السياسي العربي', 'مجلة الحداثة / Al-Hadatha Magazine', '2012-07-01', 'السياسة / العنف'),
  ('https://alhadathamagazine.blogspot.com/2008/01/blog-post.html', 'المرأة في عصر النهضة', 'مجلة الحداثة / Al-Hadatha Magazine', '2008-10-01', 'المرأة / التاريخ'),
+ # Probable match (issue/date/topic confirmed; byline not visually confirmed in the scanned PDF)
+ ('https://www.general-security.gov.lb/uploads/articles/10713.pdf', 'دور الحكومات الإلكترونية في محاربة الفساد', 'مجلة الأمن العام / General Security Magazine', '2022-08-01', 'الحوكمة الرقمية'),
 ]
 
 # MEDIA appearances -> (index, clean_title, program/source, date, topic)
