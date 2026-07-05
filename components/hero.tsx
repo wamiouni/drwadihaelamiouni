@@ -30,19 +30,9 @@ export function Hero() {
         {/* Text — on mobile the identity block is centered (ceremonial), the
             bio is start-aligned reading text demoted below the CTAs. */}
         <div className="order-2 flex flex-col text-center md:order-1 md:block md:text-start">
-          <p
-            className={`rise order-1 mb-5 text-balance uppercase text-mauve ${
-              lang === "ar"
-                ? "text-xs sm:text-sm"
-                : "text-[10px] tracking-[0.14em] sm:text-xs sm:tracking-[0.22em]"
-            }`}
-            style={{ "--d": "0.05s" } as React.CSSProperties}
-          >
-            {t("hero.identity")}
-          </p>
           <h1
-            className="rise order-2 font-display text-[clamp(2.1rem,8.5vw,3.75rem)] leading-[1.15] text-ink"
-            style={{ "--d": "0.12s" } as React.CSSProperties}
+            className="rise order-1 font-display text-[clamp(2.1rem,8.5vw,3.75rem)] leading-[1.15] text-ink"
+            style={{ "--d": "0.05s" } as React.CSSProperties}
           >
             {lang === "ar" ? SITE.nameAr : SITE.nameEn}
           </h1>
