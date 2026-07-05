@@ -53,6 +53,13 @@ articles = [
  (20, 'العملات الرقمية (Crypto Currencies) بين الإيجابيات والسلبيات', 'مجلة عرب أستراليا / Arabs Australia', '', 'العملات الرقمية'),
  # Folded in from Facebook cross-check (canonical, non-FB link)
  ('https://beirut2030.me/?p=5041', 'كيف يفهم الأطفال الموت... وكيف ندعمهم في مواجهة فقدان القريب؟ (تصريح)', 'Beirut 2030', '2026-03-26', 'علم النفس / الطفولة'),
+ # Sourced from her CV (تموز 2026) — verified byline matches on مجلة الحداثة archive
+ ('https://alhadathamagazine.blogspot.com/2016/12/blog-post.html', 'التعليم والتكنولوجيا في المؤسسات التربوية: استخدام التقنيات الحديثة في المدارس الخاصة', 'مجلة الحداثة / Al-Hadatha Magazine', '2016-10-01', 'التربية والتكنولوجيا'),
+ ('https://alhadathamagazine.blogspot.com/2016/01/blog-post_26.html', 'الإشكاليات النسوية ودورها في تأسيس علم اجتماع المرأة والإشكاليات الميدانية', 'مجلة الحداثة / Al-Hadatha Magazine', '2016-01-01', 'المرأة / علم الاجتماع'),
+ ('https://alhadathamagazine.blogspot.com/2017/03/blog-post_13.html', 'التكاذب الافتراضي على مواقع التواصل الاجتماعي', 'مجلة الحداثة / Al-Hadatha Magazine', '2017-04-01', 'المجتمع الرقمي'),
+ ('https://alhadathamagazine.blogspot.com/2014/01/blog-post.html', 'المرأة العربية وجرائم الشرف', 'مجلة الحداثة / Al-Hadatha Magazine', '2014-04-01', 'المرأة'),
+ ('https://alhadathamagazine.blogspot.com/2012/01/blog-post.html', 'العنف في الخطاب السياسي العربي', 'مجلة الحداثة / Al-Hadatha Magazine', '2012-07-01', 'السياسة / العنف'),
+ ('https://alhadathamagazine.blogspot.com/2008/01/blog-post.html', 'المرأة في عصر النهضة', 'مجلة الحداثة / Al-Hadatha Magazine', '2008-10-01', 'المرأة / التاريخ'),
 ]
 
 # MEDIA appearances -> (index, clean_title, program/source, date, topic)
