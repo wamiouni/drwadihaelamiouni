@@ -62,6 +62,11 @@ articles = [
  ('https://alhadathamagazine.blogspot.com/2008/01/blog-post.html', 'المرأة في عصر النهضة', 'مجلة الحداثة / Al-Hadatha Magazine', '2008-10-01', 'المرأة / التاريخ'),
  # Probable match (issue/date/topic confirmed; byline not visually confirmed in the scanned PDF)
  ('https://www.general-security.gov.lb/uploads/articles/10713.pdf', 'دور الحكومات الإلكترونية في محاربة الفساد', 'مجلة الأمن العام / General Security Magazine', '2022-08-01', 'الحوكمة الرقمية'),
+ # Sky News Arabia — exclusive quotes, byline confirmed on each page
+ ('https://www.skynewsarabia.com/varieties/1486936-%D8%A7%D9%84%D9%82%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D8%A7%D9%95%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A-%D8%A7%D9%93%D9%81%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%AA%D9%86%D8%AA%D8%B4%D8%B1-%D8%B4%D8%A8%D8%A7%D8%A8-%D9%84%D8%A8%D9%86%D8%A7%D9%86', '«القمار الإلكتروني».. آفة جديدة تنتشر بين شباب لبنان (تصريح)', 'Sky News Arabia', '2021-12-16', 'القمار الإلكتروني'),
+ ('https://www.skynewsarabia.com/varieties/1564444-%D8%A8%D9%8A%D9%86%D9%87%D8%A7-3-%D8%AF%D9%88%D9%84-%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D8%A7%D8%B1%D8%AA%D9%81%D8%A7%D8%B9-%D9%85%D8%B9%D8%AF%D9%84-%D8%A7%D9%84%D8%AA%D8%B9%D8%A7%D8%B3%D8%A9-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85', 'بينها 3 دول عربية.. ارتفاع معدل التعاسة في العالم (تصريح)', 'Sky News Arabia', '2022-10-20', 'المجتمع'),
+ ('https://www.skynewsarabia.com/middle-east/1489717-%D8%B1%D8%AD%D9%8A%D9%84-%D8%B3%D9%86%D8%A9-2021-%D8%A7%D9%84%D8%A7%D9%94%D8%B2%D9%85%D8%A7%D8%AA-%D8%AA%D8%B7%D9%88%D9%82-%D8%A7%D9%84%D9%84%D8%A8%D9%86%D8%A7%D9%86%D9%8A%D9%8A%D9%86-%D9%83%D9%84-%D8%AC%D8%A7%D9%86%D8%A8', 'في رحيل سنة 2021.. الأزمات تطوق اللبنانيين من كل جانب (تصريح)', 'Sky News Arabia', '2021-12-28', 'المجتمع اللبناني'),
+ ('https://www.skynewsarabia.com/middle-east/1754839-%D8%A7%D9%94%D8%B7%D9%81%D8%A7%D9%84-%D9%84%D8%A8%D9%86%D8%A7%D9%86-%D8%AA%D8%B1%D9%88%D9%85%D8%A7-%D8%A7%D9%84%D8%BA%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%A7%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9-%D8%A7%D9%84%D8%AD%D8%B6%D9%88%D8%B1%D9%8A%D8%A9', 'أطفال لبنان بين «تروما الغارات» والدراسة الحضورية (تصريح)', 'Sky News Arabia', '2024-11-13', 'علم النفس / الطفولة'),
 ]
 
 # MEDIA appearances -> (index, clean_title, program/source, date, topic)
