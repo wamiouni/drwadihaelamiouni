@@ -39,7 +39,7 @@ function meta(html: string, key: string): string | null {
 
 export async function enrich(
   url: string,
-  _type: "article" | "media",
+  _type: "article" | "media" | "statement",
 ): Promise<Enriched> {
   // YouTube / Vimeo via oEmbed
   if (/(?:youtube\.com|youtu\.be)/i.test(url)) {

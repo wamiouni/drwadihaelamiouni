@@ -2,7 +2,7 @@ import { db } from "@/db";
 import { items } from "@/db/schema";
 import { and, eq, sql } from "drizzle-orm";
 
-export async function getItems(type: "article" | "media") {
+export async function getItems(type: "article" | "media" | "statement") {
   return db
     .select()
     .from(items)
@@ -13,7 +13,10 @@ export async function getItems(type: "article" | "media") {
     );
 }
 
-export async function getLatest(type: "article" | "media", limit = 10) {
+export async function getLatest(
+  type: "article" | "media" | "statement",
+  limit = 10,
+) {
   return db
     .select()
     .from(items)

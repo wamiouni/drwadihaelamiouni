@@ -10,6 +10,7 @@ const LINKS: { href: string; key: DictKey }[] = [
   { href: "/", key: "nav.home" },
   { href: "/articles", key: "nav.articles" },
   { href: "/media", key: "nav.media" },
+  { href: "/statements", key: "nav.statements" },
   { href: "/contact", key: "nav.contact" },
 ];
 

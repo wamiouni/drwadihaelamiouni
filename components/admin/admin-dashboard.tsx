@@ -26,7 +26,9 @@ const field =
 
 export function AdminDashboard({ items }: { items: Item[] }) {
   const router = useRouter();
-  const [type, setType] = useState<"article" | "media">("article");
+  const [type, setType] = useState<"article" | "media" | "statement">(
+    "article",
+  );
   const [url, setUrl] = useState("");
   const [draft, setDraft] = useState<Draft | null>(null);
   const [loading, setLoading] = useState(false);
@@ -117,7 +119,7 @@ export function AdminDashboard({ items }: { items: Item[] }) {
       {/* Add box */}
       <div className="mt-6 rounded-2xl border border-line bg-seashell p-5">
         <div className="mb-3 inline-flex rounded-full border border-line bg-parchment p-1 text-sm">
-          {(["article", "media"] as const).map((t) => (
+          {(["article", "media", "statement"] as const).map((t) => (
             <button
               key={t}
               onClick={() => setType(t)}
@@ -125,7 +127,11 @@ export function AdminDashboard({ items }: { items: Item[] }) {
                 type === t ? "bg-mauve text-parchment" : "text-plum"
               }`}
             >
-              {t === "article" ? "مقال" : "ظهور إعلامي"}
+              {
+                { article: "مقال", media: "ظهور إعلامي", statement: "تصريح" }[
+                  t
+                ]
+              }
             </button>
           ))}
         </div>
@@ -281,7 +287,7 @@ export function AdminDashboard({ items }: { items: Item[] }) {
             }`}
           >
             <span className="shrink-0 text-base">
-              {it.type === "article" ? "📄" : "📺"}
+              {it.type === "article" ? "📄" : it.type === "media" ? "📺" : "💬"}
             </span>
             <div className="min-w-0 flex-1">
               <div className="truncate text-ink">{it.title}</div>

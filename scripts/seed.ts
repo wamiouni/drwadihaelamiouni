@@ -12,9 +12,10 @@ const XLSX_PATH = path.resolve(
   "Wadiha_El_Amiouni_Articles_and_Media.xlsx",
 );
 
-const SHEETS: { name: string; type: "article" | "media" }[] = [
+const SHEETS: { name: string; type: "article" | "media" | "statement" }[] = [
   { name: "Articles مقالات", type: "article" },
   { name: "Media ظهور إعلامي", type: "media" },
+  { name: "Statements تصريح", type: "statement" },
 ];
 
 function normDate(v: unknown): string | null {

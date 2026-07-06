@@ -63,7 +63,11 @@ function FeatureCard({ item }: { item: Item }) {
           </p>
         )}
         <span className="flex items-center gap-1.5 text-sm font-medium text-mauve">
-          {item.type === "article" ? t("card.read") : t("card.watch")}
+          {item.type === "media"
+            ? t("card.watch")
+            : item.type === "statement"
+              ? t("card.readStatement")
+              : t("card.read")}
           <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
             ↗
           </span>
@@ -78,7 +82,7 @@ export function ItemBrowser({
   kind,
 }: {
   items: Item[];
-  kind: "article" | "media";
+  kind: "article" | "media" | "statement";
 }) {
   const { t } = useLanguage();
   const [q, setQ] = useState("");
@@ -149,7 +153,11 @@ export function ItemBrowser({
             setLimit(PAGE);
           }}
           placeholder={t(
-            kind === "article" ? "browse.searchArticles" : "browse.searchMedia",
+            kind === "article"
+              ? "browse.searchArticles"
+              : kind === "media"
+                ? "browse.searchMedia"
+                : "browse.searchStatements",
           )}
           className="flex-1 rounded-full border border-line bg-seashell px-5 py-2.5 text-sm text-ink outline-none transition placeholder:text-muted focus:border-mauve"
         />

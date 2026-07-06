@@ -6,9 +6,10 @@ import { Rail } from "@/components/rail";
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const [articles, media] = await Promise.all([
+  const [articles, media, statements] = await Promise.all([
     getLatest("article", 10),
     getLatest("media", 10),
+    getLatest("statement", 10),
   ]);
 
   return (
@@ -26,6 +27,12 @@ export default async function Home() {
         viewAllHref="/media"
         items={media}
         index={2}
+      />
+      <Rail
+        titleKey="home.latestStatements"
+        viewAllHref="/statements"
+        items={statements}
+        index={3}
       />
     </>
   );

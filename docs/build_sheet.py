@@ -51,8 +51,6 @@ articles = [
  # Other republishers / outlets
  (76, 'الذكاء الاصطناعي التركيبي: الآلة تتجاوز الإنسان ولبنان ما زال في نقطة الصفر', 'مرصد نيوز / Marsad News', '', 'الذكاء الاصطناعي'),
  (20, 'العملات الرقمية (Crypto Currencies) بين الإيجابيات والسلبيات', 'مجلة عرب أستراليا / Arabs Australia', '', 'العملات الرقمية'),
- # Folded in from Facebook cross-check (canonical, non-FB link)
- ('https://beirut2030.me/?p=5041', 'كيف يفهم الأطفال الموت... وكيف ندعمهم في مواجهة فقدان القريب؟ (تصريح)', 'Beirut 2030', '2026-03-26', 'علم النفس / الطفولة'),
  # Sourced from her CV (تموز 2026) — verified byline matches on مجلة الحداثة archive
  ('https://alhadathamagazine.blogspot.com/2016/12/blog-post.html', 'التعليم والتكنولوجيا في المؤسسات التربوية: استخدام التقنيات الحديثة في المدارس الخاصة', 'مجلة الحداثة / Al-Hadatha Magazine', '2016-10-01', 'التربية والتكنولوجيا'),
  ('https://alhadathamagazine.blogspot.com/2016/01/blog-post_26.html', 'الإشكاليات النسوية ودورها في تأسيس علم اجتماع المرأة والإشكاليات الميدانية', 'مجلة الحداثة / Al-Hadatha Magazine', '2016-01-01', 'المرأة / علم الاجتماع'),
@@ -62,11 +60,16 @@ articles = [
  ('https://alhadathamagazine.blogspot.com/2008/01/blog-post.html', 'المرأة في عصر النهضة', 'مجلة الحداثة / Al-Hadatha Magazine', '2008-10-01', 'المرأة / التاريخ'),
  # Probable match (issue/date/topic confirmed; byline not visually confirmed in the scanned PDF)
  ('https://www.general-security.gov.lb/uploads/articles/10713.pdf', 'دور الحكومات الإلكترونية في محاربة الفساد', 'مجلة الأمن العام / General Security Magazine', '2022-08-01', 'الحوكمة الرقمية'),
+]
+
+# STATEMENTS — press pieces quoting her commentary -> (url, clean_title, source, date, topic)
+statements = [
+ ('https://beirut2030.me/?p=5041', 'كيف يفهم الأطفال الموت... وكيف ندعمهم في مواجهة فقدان القريب؟', 'Beirut 2030', '2026-03-26', 'علم النفس / الطفولة'),
  # Sky News Arabia — exclusive quotes, byline confirmed on each page
- ('https://www.skynewsarabia.com/varieties/1486936-%D8%A7%D9%84%D9%82%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D8%A7%D9%95%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A-%D8%A7%D9%93%D9%81%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%AA%D9%86%D8%AA%D8%B4%D8%B1-%D8%B4%D8%A8%D8%A7%D8%A8-%D9%84%D8%A8%D9%86%D8%A7%D9%86', '«القمار الإلكتروني».. آفة جديدة تنتشر بين شباب لبنان (تصريح)', 'Sky News Arabia', '2021-12-16', 'القمار الإلكتروني'),
- ('https://www.skynewsarabia.com/varieties/1564444-%D8%A8%D9%8A%D9%86%D9%87%D8%A7-3-%D8%AF%D9%88%D9%84-%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D8%A7%D8%B1%D8%AA%D9%81%D8%A7%D8%B9-%D9%85%D8%B9%D8%AF%D9%84-%D8%A7%D9%84%D8%AA%D8%B9%D8%A7%D8%B3%D8%A9-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85', 'بينها 3 دول عربية.. ارتفاع معدل التعاسة في العالم (تصريح)', 'Sky News Arabia', '2022-10-20', 'المجتمع'),
- ('https://www.skynewsarabia.com/middle-east/1489717-%D8%B1%D8%AD%D9%8A%D9%84-%D8%B3%D9%86%D8%A9-2021-%D8%A7%D9%84%D8%A7%D9%94%D8%B2%D9%85%D8%A7%D8%AA-%D8%AA%D8%B7%D9%88%D9%82-%D8%A7%D9%84%D9%84%D8%A8%D9%86%D8%A7%D9%86%D9%8A%D9%8A%D9%86-%D9%83%D9%84-%D8%AC%D8%A7%D9%86%D8%A8', 'في رحيل سنة 2021.. الأزمات تطوق اللبنانيين من كل جانب (تصريح)', 'Sky News Arabia', '2021-12-28', 'المجتمع اللبناني'),
- ('https://www.skynewsarabia.com/middle-east/1754839-%D8%A7%D9%94%D8%B7%D9%81%D8%A7%D9%84-%D9%84%D8%A8%D9%86%D8%A7%D9%86-%D8%AA%D8%B1%D9%88%D9%85%D8%A7-%D8%A7%D9%84%D8%BA%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%A7%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9-%D8%A7%D9%84%D8%AD%D8%B6%D9%88%D8%B1%D9%8A%D8%A9', 'أطفال لبنان بين «تروما الغارات» والدراسة الحضورية (تصريح)', 'Sky News Arabia', '2024-11-13', 'علم النفس / الطفولة'),
+ ('https://www.skynewsarabia.com/varieties/1486936-%D8%A7%D9%84%D9%82%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D8%A7%D9%95%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A-%D8%A7%D9%93%D9%81%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%AA%D9%86%D8%AA%D8%B4%D8%B1-%D8%B4%D8%A8%D8%A7%D8%A8-%D9%84%D8%A8%D9%86%D8%A7%D9%86', '«القمار الإلكتروني».. آفة جديدة تنتشر بين شباب لبنان', 'Sky News Arabia', '2021-12-16', 'القمار الإلكتروني'),
+ ('https://www.skynewsarabia.com/varieties/1564444-%D8%A8%D9%8A%D9%86%D9%87%D8%A7-3-%D8%AF%D9%88%D9%84-%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D8%A7%D8%B1%D8%AA%D9%81%D8%A7%D8%B9-%D9%85%D8%B9%D8%AF%D9%84-%D8%A7%D9%84%D8%AA%D8%B9%D8%A7%D8%B3%D8%A9-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85', 'بينها 3 دول عربية.. ارتفاع معدل التعاسة في العالم', 'Sky News Arabia', '2022-10-20', 'المجتمع'),
+ ('https://www.skynewsarabia.com/middle-east/1489717-%D8%B1%D8%AD%D9%8A%D9%84-%D8%B3%D9%86%D8%A9-2021-%D8%A7%D9%84%D8%A7%D9%94%D8%B2%D9%85%D8%A7%D8%AA-%D8%AA%D8%B7%D9%88%D9%82-%D8%A7%D9%84%D9%84%D8%A8%D9%86%D8%A7%D9%86%D9%8A%D9%8A%D9%86-%D9%83%D9%84-%D8%AC%D8%A7%D9%86%D8%A8', 'في رحيل سنة 2021.. الأزمات تطوق اللبنانيين من كل جانب', 'Sky News Arabia', '2021-12-28', 'المجتمع اللبناني'),
+ ('https://www.skynewsarabia.com/middle-east/1754839-%D8%A7%D9%94%D8%B7%D9%81%D8%A7%D9%84-%D9%84%D8%A8%D9%86%D8%A7%D9%86-%D8%AA%D8%B1%D9%88%D9%85%D8%A7-%D8%A7%D9%84%D8%BA%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%A7%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9-%D8%A7%D9%84%D8%AD%D8%B6%D9%88%D8%B1%D9%8A%D8%A9', 'أطفال لبنان بين «تروما الغارات» والدراسة الحضورية', 'Sky News Arabia', '2024-11-13', 'علم النفس / الطفولة'),
 ]
 
 # MEDIA appearances -> (index, clean_title, program/source, date, topic)
@@ -191,6 +194,8 @@ ws1 = wb.active; ws1.title = 'Articles مقالات'
 make_sheet(ws1, 'مقالات بقلم د. وديعة الأميوني — Articles by Dr. Wadiha El Amiouni', articles)
 ws2 = wb.create_sheet('Media ظهور إعلامي')
 make_sheet(ws2, 'الظهور الإعلامي لـ د. وديعة الأميوني — Media appearances', media)
+ws_st = wb.create_sheet('Statements تصريح')
+make_sheet(ws_st, 'تصريحات صحفية لـ أ.د. وديعة الأميوني — Press statements', statements)
 
 # Notes/about sheet
 ws3 = wb.create_sheet('About')
@@ -219,4 +224,4 @@ ws3.column_dimensions['A'].width = 110
 
 out = 'Wadiha_El_Amiouni_Articles_and_Media.xlsx'
 wb.save(out)
-print('SAVED', out, '| articles:', len(articles), '| media:', len(media))
+print('SAVED', out, '| articles:', len(articles), '| media:', len(media), '| statements:', len(statements))

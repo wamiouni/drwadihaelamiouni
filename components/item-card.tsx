@@ -77,7 +77,11 @@ export function ItemCard({ item }: { item: Item }) {
           <p className="line-clamp-2 text-sm text-muted">{item.excerpt}</p>
         )}
         <span className="mt-auto flex items-center gap-1 pt-1 text-xs font-medium text-mauve opacity-0 transition duration-300 group-hover:opacity-100">
-          {item.type === "article" ? t("card.read") : t("card.watch")}
+          {item.type === "media"
+            ? t("card.watch")
+            : item.type === "statement"
+              ? t("card.readStatement")
+              : t("card.read")}
           <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
             ↗
           </span>

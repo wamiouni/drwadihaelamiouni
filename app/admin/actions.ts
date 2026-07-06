@@ -12,6 +12,7 @@ function revalidateAll() {
   revalidatePath("/");
   revalidatePath("/articles");
   revalidatePath("/media");
+  revalidatePath("/statements");
   revalidatePath("/admin");
 }
 
@@ -30,7 +31,7 @@ export async function logoutAction(): Promise<void> {
 
 export async function previewAction(
   url: string,
-  type: "article" | "media",
+  type: "article" | "media" | "statement",
 ): Promise<Enriched & { duplicate: boolean }> {
   if (!(await isAuthed())) throw new Error("unauthorized");
   const e = await enrich(url, type);
@@ -42,7 +43,7 @@ export async function previewAction(
 }
 
 export type AddInput = {
-  type: "article" | "media";
+  type: "article" | "media" | "statement";
   title: string;
   url: string;
   source: string;

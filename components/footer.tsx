@@ -44,6 +44,9 @@ export function Footer() {
           <Link href="/media" className="transition hover:text-seashell">
             {t("nav.media")}
           </Link>
+          <Link href="/statements" className="transition hover:text-seashell">
+            {t("nav.statements")}
+          </Link>
           <Link href="/contact" className="transition hover:text-seashell">
             {t("nav.contact")}
           </Link>

@@ -8,7 +8,7 @@ import {
   pgEnum,
 } from "drizzle-orm/pg-core";
 
-export const itemType = pgEnum("item_type", ["article", "media"]);
+export const itemType = pgEnum("item_type", ["article", "media", "statement"]);
 export const itemStatus = pgEnum("item_status", ["draft", "published"]);
 export const itemLanguage = pgEnum("item_language", ["ar", "en"]);
 export const mediaFormat = pgEnum("media_format", [
